@@ -25,3 +25,4 @@ function trocar(){
         document.querySelector('#trocar').classList.add('preto');
     }
 }
+
