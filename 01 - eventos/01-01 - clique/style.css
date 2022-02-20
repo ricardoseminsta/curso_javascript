@@ -4,6 +4,35 @@ body {
 
 }
 
+button {
+    padding: 10px;
+}
+
 input {
     padding: 10px;
+}
+
+.cores {
+    margin-bottom: 30px;
+}
+
+.azul {
+    background-color: #00f;
+}
+
+.vermelho {
+    background-color: #f00;
+}
+
+.verde {
+    background-color: #0f0;
+}
+
+.oculto {
+    display: none;
+}
+
+#telefone {
+    display: none;
+    margin-top: 25px;
 }

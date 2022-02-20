@@ -8,15 +8,25 @@
     <title>evento de clique</title>
 </head>
 <body>
-    <h1 id="titulo" onclick="console.log('clicou')"
+    <h1 class="azul" id="titulo" onclick="console.log('clicou')"
         onmouseover="console.log('passou')"
         onmouseout="console.log('tirou')">
         Seja bem vindo</h1>
-
+    <div class="cores">
+        <button onclick="azul()">azul</button>
+        <button onclick="vermelho()">vermelho</button>
+        <button onclick="verde()">verde</button>
+    </div>
     <input type="text" id="campo" name="usuario" value="Nome do usuário" 
             onkeyup="digitou(event)">
 
-    <button onclick="this.innerHTML = 'clicou'">Clique em mim</button>
+    <button onclick="this.innerHTML = 'clicou'">Clique em mim</button> <br>
+
+    <div id="telefone">
+        87 99999 - 9999 <br/>
+    </div>
+    <button onclick="mostrarTelefone(this)">Mostar telefone</button>
+   
     <script src="script.js"></script>
 </body>
 </html>
