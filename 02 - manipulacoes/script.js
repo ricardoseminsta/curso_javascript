@@ -46,10 +46,18 @@ lista2 = lista.filter(function(item) {
         return false;
     }
 });*/
+
+/* 
 //some algum maior que 20
 //every todos maior que 20
 lista2 = lista.some(function(item){ 
     return (item>20)? true : false;
+});*/
+
+
+// findIndex retorna a posição
+lista2 = lista.find(function(item) {
+   return (item == 16) ? true : false;
 });
 
 let res = lista2
