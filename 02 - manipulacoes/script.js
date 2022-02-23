@@ -56,11 +56,34 @@ lista2 = lista.some(function(item){
 
 
 // findIndex retorna a posição
+
+/* 
 lista2 = lista.find(function(item) {
    return (item == 16) ? true : false;
-});
+});*/
+// let res = lista2
+// console.log(res);
 
-let res = lista2
+// ................ DATAS ...............
 
+
+// let d = new Date();
+// let d = new Date('2020-01-01 15:42:17');
+
+/* 
+let d = new Date();
+
+let res = Date.now();
 
 console.log(res);
+
+let m = new Date('2021-10-23');
+
+m.setDate(m.getDate() + 100);
+
+let aumentarData = m;
+
+console.log(aumentarData);
+*/
+
+// ............... MATEMATICA..........
