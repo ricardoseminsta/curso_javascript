@@ -120,3 +120,18 @@ function showTime() {
 
     document.querySelector('.demo').innerHTML = txt;
 }
+
+
+// ............ set time out
+
+let timer2;
+
+function rodar() {
+    timer2 = setTimeout(function() {
+        document.querySelector('.demo').innerHTML = 'Rodou!';
+    }, 2000);
+}
+
+function parar2() {
+    clearTimeout(timer2);
+}
