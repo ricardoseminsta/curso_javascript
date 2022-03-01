@@ -40,10 +40,19 @@ let idade = pessoa.idade;
 
 // let { facebook, instagram } = pessoa.social;
 
-let { nome, idade=33, social:{instagram:{url:instagram}, facebook} } = pessoa;
+// let { nome, idade=33, social:{instagram:{url:instagram}, facebook} } = pessoa;
 
 // console.log(pessoaNome, sobrenome, idade);
 // console.log(facebook, instagram);
 // console.log(nome, idade, facebook, instagram);
 
-console.log(getFullName(pessoa));
+// console.log(getFullName(pessoa));
+
+
+//.................... DESCONSTRUÇÃO DE ARRAYS
+
+let info = ['Ricardo Emanuel', 'Ricardo', 'Emanuel', '@ricardoseminsta'];
+
+let [nomeCompleto, nome, sobrenome, instagram] = info;
+
+console.log(nomeCompleto, nome, sobrenome, instagram);
