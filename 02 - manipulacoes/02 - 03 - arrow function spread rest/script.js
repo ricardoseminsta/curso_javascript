@@ -53,6 +53,7 @@ adcionar(5, 6, 7, 8, 9);
 
 // spread e rest
 
+/*
 function adcionar(nomes, ...novosNomes) {
     let novoConjunto = [
         ...nomes,
@@ -64,3 +65,17 @@ function adcionar(nomes, ...novosNomes) {
 let nomes = ["tanga", "zorba"];
 
 let outros = adcionar(nomes,"Ricardo", "JOana", "Romildo", "Vick", " Cleyton");
+ */
+
+// .............................INCLUDES E REPEAT
+//includes
+/*let lista = ['ovo', 'macarrão', 'guaraná', 'batata', 'queijo'];
+console.log(lista.includes('ovo'));
+
+let nome = "Ricardo";
+console.log(nome.includes('a'));
+*/
+
+//repeat
+
+console.log('x'.repeat(10));
