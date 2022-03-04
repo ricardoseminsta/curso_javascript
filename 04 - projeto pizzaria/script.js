@@ -1,3 +1,5 @@
+let modalQt = 1;
+
 const c = (el) => document.querySelector(el);
 const cs = (el) => document.querySelectorAll(el);
 
@@ -13,16 +15,22 @@ pizzaJson.map((item, index)=>{
     pizzaItem.querySelector('a').addEventListener('click', (e) => {
         //desabilitanto ação do link
         e.preventDefault();
-
+        
+        //resetar o modal sempre que abrir
+        modalQt = 1;
+        //pegando o indice equivalente a cada pizza no JSON
         let key = e.target.closest('.pizza-item').getAttribute('data-key');
         
+        //setando informações da pizza no modal
         c('.pizzaBig img').src = pizzaJson[key].img;
         c('.pizzaInfo h1').innerHTML = pizzaJson[key].name;
         c('.pizzaInfo--desc').innerHTML = pizzaJson[key].description;
         c('.pizzaInfo--actualPrice').innerHTML = `R$ ${pizzaJson[key].price.toFixed(2)}`;
 
-
+        // remove a seleççao de tamanho
         c('.pizzaInfo--size.selected').classList.remove('selected');
+
+        //cada vez que clicar estará selecionado o tamanho G
         cs('.pizzaInfo--size').forEach((size, sizeIndex) => {
             if(sizeIndex == 2) {
                 size.classList.add('selected');
@@ -33,6 +41,8 @@ pizzaJson.map((item, index)=>{
 
         //console.log(pizzaJson[key]);
         // abrir o modal
+
+        c('.pizzaInfo--qt').innerHTML = modalQt;
         c('.pizzaWindowArea').style.opacity = 0;
         c('.pizzaWindowArea').style.display = 'flex';
         setTimeout(()=>{
