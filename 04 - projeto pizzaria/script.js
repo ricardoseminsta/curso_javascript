@@ -1,8 +1,12 @@
+let cart = [];
 let modalQt = 1;
+let modalKey = 0;
 
 const c = (el) => document.querySelector(el);
 const cs = (el) => document.querySelectorAll(el);
 
+
+//Listagem das pizzas
 pizzaJson.map((item, index)=>{
     let pizzaItem = c('.models .pizza-item').cloneNode(true);
     // preencher as informações em pizzaitem
@@ -20,6 +24,8 @@ pizzaJson.map((item, index)=>{
         modalQt = 1;
         //pegando o indice equivalente a cada pizza no JSON
         let key = e.target.closest('.pizza-item').getAttribute('data-key');
+
+        modalKey = key;
         
         //setando informações da pizza no modal
         c('.pizzaBig img').src = pizzaJson[key].img;
@@ -53,4 +59,55 @@ pizzaJson.map((item, index)=>{
 
     c('.pizza-area').append(pizzaItem);
 
+});
+
+// Eventos do modal
+
+function closeModal() {
+    c('.pizzaWindowArea').style.opacity = 0;
+    setTimeout(() => {
+        c('.pizzaWindowArea').style.display = 'none';
+    }, 200);
+
+}
+
+cs('.pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton').forEach((item) => {
+    item.addEventListener('click', closeModal);
+})
+
+c('.pizzaInfo--qtmenos').addEventListener('click', () => {
+    if(modalQt > 1){
+        modalQt --;
+        c('.pizzaInfo--qt').innerHTML = modalQt;
+    }
+});
+
+c('.pizzaInfo--qtmais').addEventListener('click', () => {
+    modalQt ++;
+    c('.pizzaInfo--qt').innerHTML = modalQt;
+});
+
+cs('.pizzaInfo--size').forEach((size) => {
+    size.addEventListener('click', () => {
+        c('.pizzaInfo--size.selected').classList.remove('selected');
+        size.classList.add('selected');
+    });
+});
+
+c('.pizzaInfo--addButton').addEventListener('click', () =>{
+    // qual a pizza
+    //console.log('pizza: '+modalKey);
+    // qual o tamanho selecionado
+    let size =  parseInt(c('.pizzaInfo--size.selected').getAttribute('data-key'));
+
+    cart.push({
+        id: pizzaJson[modalKey].id,
+        size,
+        qt: modalQt
+    });
+
+    closeModal();
+    //console.log('Tamanho: '+size);
+    //quantas pizzas
+    //console.log('Quantidade: '+ modalQt);
 });
