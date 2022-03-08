@@ -9,12 +9,14 @@ const cs = (el) => document.querySelectorAll(el);
 //Listagem das pizzas
 pizzaJson.map((item, index)=>{
     let pizzaItem = c('.models .pizza-item').cloneNode(true);
+
     // preencher as informações em pizzaitem
     
     pizzaItem.setAttribute('data-key', index);
     pizzaItem.querySelector('.pizza-item--name').innerHTML = item.name;
     pizzaItem.querySelector('.pizza-item--desc').innerHTML = item.description;
-    pizzaItem.querySelector('.pizza-item--price').innerHTML = `R$ ${item.price.toFixed(2)}`;
+
+    pizzaItem.querySelector('.pizza-item--price').innerHTML = `R$ ${item.price[2].toFixed(2)}`;
     pizzaItem.querySelector('.pizza-item--img img').src = item.img;
     pizzaItem.querySelector('a').addEventListener('click', (e) => {
         //desabilitanto ação do link
@@ -24,14 +26,14 @@ pizzaJson.map((item, index)=>{
         modalQt = 1;
         //pegando o indice equivalente a cada pizza no JSON
         let key = e.target.closest('.pizza-item').getAttribute('data-key');
-
+        //let prices = 
         modalKey = key;
         
         //setando informações da pizza no modal
         c('.pizzaBig img').src = pizzaJson[key].img;
         c('.pizzaInfo h1').innerHTML = pizzaJson[key].name;
         c('.pizzaInfo--desc').innerHTML = pizzaJson[key].description;
-        c('.pizzaInfo--actualPrice').innerHTML = `R$ ${pizzaJson[key].price.toFixed(2)}`;
+        c('.pizzaInfo--actualPrice').innerHTML = `R$ ${pizzaJson[key].price[2].toFixed(2)}`
 
         // remove a seleççao de tamanho
         c('.pizzaInfo--size.selected').classList.remove('selected');
@@ -42,7 +44,10 @@ pizzaJson.map((item, index)=>{
                 size.classList.add('selected');
             }
             size.querySelector('span').innerHTML = pizzaJson[key].sizes[sizeIndex];
-        
+            size.addEventListener('click', () => {
+                c('.pizzaInfo--actualPrice').innerHTML = `R$ ${pizzaJson[key].price[sizeIndex].toFixed(2)}`;
+            })
+            
         });
 
         //console.log(pizzaJson[key]);
@@ -95,19 +100,36 @@ cs('.pizzaInfo--size').forEach((size) => {
 });
 
 c('.pizzaInfo--addButton').addEventListener('click', () =>{
-    // qual a pizza
-    //console.log('pizza: '+modalKey);
-    // qual o tamanho selecionado
     let size =  parseInt(c('.pizzaInfo--size.selected').getAttribute('data-key'));
+    let identifier = pizzaJson[modalKey].id+'@'+size;
+    let key = cart.findIndex((item)=> item.identifier == identifier);
 
+    if(key > -1) {
+        cart[key].qt += modalQt;
+    }else {
     cart.push({
+        identifier,
         id: pizzaJson[modalKey].id,
         size,
-        qt: modalQt
+        qt: modalQt,
+        price: pizzaJson[modalKey].price[size]
     });
-
+    }
+    updateCart();
     closeModal();
-    //console.log('Tamanho: '+size);
-    //quantas pizzas
-    //console.log('Quantidade: '+ modalQt);
 });
+
+function updateCart() {
+    if(cart.length > 0) {
+        c('aside').classList.add('show');
+        for(let i in cart) {
+
+            let pizzaItem = pizzaJson.find((item) => item.id == cart[i].id);
+
+            console.log(pizzaItem);
+
+        }
+    }else {
+        c('aside').classList.remove('show');
+    }
+}
