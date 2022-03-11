@@ -7,13 +7,13 @@ let etapas = [
           numero: "38111",
           nome: "Roberto Silva",
           partido: "Qsl",
-          fotos: [{ src: "38111.jpg", legenda: "Vereador" }],
+          fotos: [{ src: "assets/images/38111.jpg", legenda: "Vereador" }],
         },
         {
           numero: "77222",
           nome: "Jadson Barbosa K.",
           partido: "Unidos",
-          fotos: [{ src: "77222.jpg", legenda: "Vereador" }],
+          fotos: [{ src: "assets/images/77222.jpg", legenda: "Vereador" }],
         },
       ],
     },
@@ -27,8 +27,8 @@ let etapas = [
           partido: "Qsl",
           vice: "Cícero S.",
           fotos: [
-            { src: "99.jpg", legenda: "Prefeito" },
-            { src: "99_2.jpg", legenda: "Vice-Prefeito", small: true },
+            { src: "assets/images/99.jpg", legenda: "Prefeito" },
+            { src: "assets/images/99_2.jpg", legenda: "Vice-Prefeito", small: true },
           ],
         },
         {
@@ -37,8 +37,8 @@ let etapas = [
           partido: "QWERTY",
           vice: "Bonieky L.",
           fotos: [
-            { src: "84.jpg", legenda: "Prefeito" },
-            { src: "84_2.jpg", legenda: "Vice-Prefeito", small: true },
+            { src: "assets/images/84.jpg", legenda: "Prefeito" },
+            { src: "assets/images/84_2.jpg", legenda: "Vice-Prefeito", small: true },
           ],
         },
       ],
