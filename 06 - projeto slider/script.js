@@ -22,7 +22,8 @@ function goNext() {
 }
 
 function updateMargin(){
-    let newMargin = (curretSlide * document.body.clientWidth);
+    let sliderItemWidth = document.querySelector('.slider--item').clientWidth;
+    let newMargin = (curretSlide * sliderItemWidth);
     document.querySelector('.slider--width').style.marginLeft = `-${newMargin}px`;
 }
 
