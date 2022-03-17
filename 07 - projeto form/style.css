@@ -13,6 +13,7 @@ body {
 
 .leftside {
     flex: 1;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -41,4 +42,12 @@ body {
     outline: 0;
 
     width: 100%;
+}
+
+.error {
+    font-size: 11px;
+    background-color: rgb(156, 30, 30);
+    color: rgb(240, 218, 218);
+    padding: 4px;
+    border-radius: 5px;
 }
